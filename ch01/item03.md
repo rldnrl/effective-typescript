@@ -155,7 +155,8 @@ function setLightSwitch(value: boolean) {
       turnLightOff();
       break;
     default:
-      console.log("실행되지 않을까 봐 걱정이 됩니다.")
+      console.log("실행되지 않을까 봐 걱정이 됩니다.");
+      break;
   }
 }
 ```
