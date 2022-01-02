@@ -117,7 +117,7 @@ function calculateArea(shape: Shape) {
 
 ## 타입 연산은 런타임에 영향을 주지 않습니다.
 
-string 또는 number 타입인 값을 항상 number로 정제하는 경우를 가정해봅시다. 다음 코드는 타입 체커를 통과하지만, 잘못된 방법입니다.
+`string` 또는 `number` 타입인 값을 항상 `number`로 정제하는 경우를 가정해봅시다. 다음 코드는 타입 체커를 통과하지만, 잘못된 방법입니다.
 
 ```ts
 function asNumber(value: string | number): number {
@@ -155,7 +155,7 @@ function setLightSwitch(value: boolean) {
       turnLightOff();
       break;
     default:
-    console.log("실행되지 않을까 봐 걱정이 됩니다.")
+      console.log("실행되지 않을까 봐 걱정이 됩니다.")
   }
 }
 ```
