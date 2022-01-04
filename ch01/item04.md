@@ -55,20 +55,25 @@ function normalize(v: Vector3D) {
   const length = calculateLength(v);
 
   return {
-    v.x / length,
-    v.y / length,
-    v.z / length,
+    x: v.x / length,
+    y: v.y / length,
+    z: v.z / length,
   }
 }
 ```
 
-그러나 이 함수는 1보다 조금 더 긴(1.41) 길이를 가진 결과를 출력합니다.
+그러나 이 함수는 1보다 조금 더 긴 길이를 가진 결과를 출력합니다.
+
+```bash
+> normalize({x: 3, y: 4, z: 5})
+{x: 0.6, y: 0.8, z: 1}
+```
 
 왜 그럴까요?
 
 그것은 바로 `calculateLength`는 `Vector2D`를 기반으로 계산을 하는데, `normalize`는 `Vector3D`를 기반으로 계산을 하기 때문이죠. 
 
-왜 타입 체커는 이런 오류를 찾아내지 못한 것일까요?
+그렇다면 왜 타입 체커는 이런 오류를 찾아내지 못한 것일까요?
 
 `Vector3D`와 호환되는 `{x, y, z}` 객체로 `calculateLength`를 호출하면 구조적 타이핑 관점에서 `x`와 `y`가 있어서 `Vector2D`와 호환이 됩니다. 따라서 오류가 발생하지 않았고, 타입 체커가 문제로 인식하지 않았습니다.
 
