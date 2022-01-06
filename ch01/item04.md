@@ -5,7 +5,7 @@
 2D 벡터 타입을 다루는 예제를 살펴봅시다.
 
 ```ts
-interface Vertor2D {
+interface Vector2D {
   x: number;
   y: number;
 }
@@ -22,14 +22,14 @@ function calculateLength(v: Vector2D) {
 이제 이름이 들어간 벡터를 추가합니다.
 
 ```ts
-interface NamedVertor {
+interface NamedVector {
   name: string;
   x: number;
   y: number;
 }
 ```
 
-`NamedVector`는 `number` 타입의 `x`와 `y` 속성이 있기 때문에 calculateLength 함수로 호출 가능합니다. 타입스크립트는 다음 코드를 읽을 수 있을 정도로 매우 똑똑합니다.
+`NamedVector`는 `number` 타입의 `x`와 `y` 속성이 있기 때문에 `calculateLength` 함수로 호출 가능합니다. 타입스크립트는 다음 코드를 읽을 수 있을 정도로 매우 똑똑합니다.
 
 ```ts
 const v: NamedVector = { x: 3, y: 4, name: "Thomas" }
