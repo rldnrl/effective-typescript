@@ -96,14 +96,14 @@ function calculateLength(v: Vector3D) {
 
 이것은 `axis`는 `Vector3D` 타입인 `v`의 키 중 하나이기 때문에 "x", "y", "z" 중에 하나여야 합니다. 그리고 `Vector3D` 타입의 모든 `value` 타입이 `number`이므로 `coord` 타입은 `number`가 되어야할 것으로 예측됩니다.
 
-타입스크립트는 오류를 정확하게 찾아냈습니다! Vector3D는 다른 속성이 없다고 가정되었습니다. 그런데 다음처럼 작성할 수 있습니다.
+타입스크립트는 오류를 정확하게 찾아냈습니다! `Vector3D`는 다른 속성이 없다고 가정되었습니다. 그런데 다음처럼 작성할 수 있습니다.
 
 ```ts
 const vec3D = {x: 3, y: 4, z: 1, name: "David Thomas"}
 calculateLength(vec3D) // 정상!!! NaN
 ```
 
-`v`는 어떤 속성이든 가질 수 있기 때문에, `axis`의 타입은 `string`이 될 수도 있습니다. 그러므로 타입스크립트는 `v[axis]`가 어떤 속성이 될지 알 수 없기 때문에 number라고 확정할 수 없습니다. 결론을 말하자면, 루프를 돌리는 것보다 모든 속성을 각각 더하는 구현이 훨씬 낫습니다.
+`v`는 어떤 속성이든 가질 수 있기 때문에, `axis`의 타입은 `string`이 될 수도 있습니다. 그러므로 타입스크립트는 `v[axis]`가 어떤 속성이 될지 알 수 없기 때문에 `number`라고 확정할 수 없습니다. 결론을 말하자면, 루프를 돌리는 것보다 모든 속성을 각각 더하는 구현이 훨씬 낫습니다.
 
 ```ts
 function calculateLength(v: Vector3D) {
